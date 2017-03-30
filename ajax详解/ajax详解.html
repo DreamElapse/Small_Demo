@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style>
+            *{padding:0; margin:0;}
+            ul li,ol li{list-style:none; padding:10px 0; line-height:20px;}
+            ul{ padding-bottom:20px;}
+            ol{border:1px solid #ccc; border-left:0; border-right:0;}
+            ol li{padding:5px 0;}
+            img{margin-top:5px;}
+			body{background:#12788d; color:#fad5a3; font-size:14px; font-style:'微软雅黑';}
+            pre{background:#eee;padding: 10px; margin-top: -5px;font-size: 13px; background: #eee; color: #2384ad;  white-space: pre-wrap;  word-wrap: break-word;  font-family: "Lucida Console", Consolas, Monaco; box-shadow:4px 4px 5px 0 #117388;}
+           .main{width:1000px; margin:0 auto; padding:20px 0;} 
+        </style>
+    </head>
+    <body>
+        <div class="main">
+            <ul>
+                <li><h2>GET请求方式：</h2></li>
+                <li><p>先看整体写法：</p><img src="1.png" alt=""></li>
+                <li><p>这处是各个浏览器获取AJAX对象的兼容写法：</p><img src="2.png" alt=""></li>
+                <li><P>这里要是符全状态的情况下，才会从服务器返回数据</P><img src="3.png" alt=""></li>
+                <li><P>这个是回调：</P><img src="4.png" alt=""></li>
+                <li><P>这个是PHP后台</P><img src="5.png" alt=""></li>
+                <li>回调后的值:</li>
+                <li><ol>
+                        <li>AJAX的状态码</li>
+                        <li>0：表示对象己经建立，但未初始化，就是没有调用open()方法</li>
+                        <li>1：表示对象己经初始化，但未发送，也就是己经调用open()方法，但是没有调用send()发送方法</li>
+                        <li>2：表示已经调用send()方法进行请求，也就是向服务器发送请求，发送数据</li>
+                        <li>3：表示服务器正在接收数据（接收到一部分），也可以说正在接收响应</li>
+                        <li>4：接收数据完成</li>
+                    </ol>
+                </li>
+                <li>
+                    <ol>
+                        <li>statusText ajax对象接收到的http响应状态文本  如：OK  not found</li>
+                        <li>reponseText ajax对象接收到http响应主体字符串（text/html）,文本格式的html</li>
+                        <li>responseXML ajax对象接收到的http响应主体内容，和上面不同的是(text/xml)</li>
+                    </ol>
+                </li>
+                
+                <li>ajax对象状态码改变时所触发的回调函数,它的值是一个函数首地址（匿名函数）</li>
+                <li>
+                    <pre>
+    xhr.onreadystatechange=function()
+    {
+        //查看ajax对象状态码
+        xhr.readyState
+    };
+    初始化ajax对象
+    xhr.open("get","demoa.php");
+    发送请求
+    xhr.send(null);
+                    </pre>
+                </li>
+            </ul>
+
+            <ul>
+                <li><p>AJAX原生的兼容写法分为下面两种，都适合，现在把这个兼容的写法，写成一个小库，方便调用，可以单独引用文件，下闪用就调用文件方便：如下</p><img src="6.png" alt=""></li>
+                <li>用变量的方式调用：<code>var xhr=createxhr();</code></li>
+                <li><p>这个是整体的写法：</p><img src="7.png" alt=""></li>
+                <li>灰色注释的都是可以用的，但是基本不会这样写，代码量有点大，而且复杂</li>
+            </ul>
+            <ul>
+                <li><h3>下面是POST请求方法</h3></li>
+                <li><img src="8.png" alt=""></li>
+                <li>他和GET请求方式的不同之处是:</li>
+                <li>
+                    <ol>
+                        <li>1>get请求将参数放到请求地址url的后面,也就是浏览器地址栏所看到的那些字符串</li>
+                        <li>2>post请求时将参数放到http请求空白行的后面，也就是请求的参数在空白行后面</li>
+                        <li>3>get请求时参数大小有限制</li>
+                        <li>4>post请求时参数大小无限制，相对于get来说，可以这样去理解</li>
+                        <li>5>post比get更加的安全</li>
+                        <li>6>通过比较，post请求时，随了参数格式不同之外，post还比get请求多了一个content-type的</li>
+                        <li>请求头，它的值是application/x-www-form-urlencoded,表示本次提交的数据是字符数据，同时post还可以提交二进制数据，如：在form表单里加一个属性enctype="multipart/form-data"就可以，这种格式可以同时支持字符数据和二进制数据的传输。</li>
+                        <li>7>post服务器更数据时，没有缓存的问题，不会有缓存</li>
+                        <li>注：AJAX发送请求其实就是模拟http请求AJAX对象的POST请求也要加上content-type的请求头</li>
+                    </ol>
+                </li>
+            </ul>
+        </div>	
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+    </body>
+</html>
