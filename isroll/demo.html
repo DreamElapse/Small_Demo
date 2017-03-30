@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta name="format-detection" content="telephone=no">
+<title>iScroll demo: simple</title>
+<link href="css/base.css" rel="stylesheet">
+<script type="text/javascript" src="js/iscroll.js"></script>
+
+
+
+<style type="text/css" media="all">
+.main{ overflow:hidden;}
+img{width: 100%;}
+.head_logo{ background:#000; text-align:center;}
+.head_logo img{ max-width:140px; width:44%;}
+#wrapper {background:#fff;position:absolute; z-index:1; bottom:48px; height:100%; width:100%;overflow:auto; transform:translateX(100%); transition:0.3s all;}
+#scroller { position:absolute; z-index:1; -webkit-tap-highlight-color:rgba(0,0,0,0); width:100%; padding:0; }
+#scroller ul { list-style:none; padding:0; margin:0; width:100%; text-align:left; }
+#scroller ul li{ padding:0.5em; height:6em; box-sizing: border-box; border-bottom:1px solid #999; overflow:hidden ;}
+.logo{ width:20%; float:left;}
+.fr{ float:right; box-sizing: border-box; padding-right:0.5em; width:75%; font-size:1em; position:relative;}
+.praise{ width:4.7em; height:2em; margin-left:70%; font-size:0.7em; background:url(images/icon_01.png) no-repeat; background-size:100% auto; margin-bottom:1em; padding-left:1.9em; line-height:1.7em; box-sizing: border-box; }
+.current>div.praise{ background:url(images/icon_02.png) no-repeat; background-size:100% auto; color:#fff; }
+.fr .month{ background:url(images/icon_03.png) no-repeat; background-size:100% auto; width:2.5em; height:3.5em; position:absolute; top:-0.5em; left:0;  text-align:center; line-height:1.7em; font-size:1.2em; color:#fff; box-sizing: border-box;}
+
+
+</style>
+</head>
+<body>
+<div class="main">
+	<div id="head_box">
+		<div class="head_logo"><img src="" loadimg="images/logo.png" /></div>
+		<!--nav优秀合伙人-公用顶部导航结束-->
+
+		<!--begin content-->
+		<img src="" alt="" loadimg="images/banner.jpg" />
+	</div>
+	<div id="wrapper">
+		<div id="scroller">
+			<ul id="thelist">
+				<li>
+					<div class="logo">
+						<img class="lazy" src="images/img_01.png" alt=""> 
+					</div>
+					<div class="fr">
+						<div class="praise">2621</div>	
+						<p>我是如何在第一个月就卖出1358盒面膜的</p>
+						<div class="month">10月</div>
+					</div>
+				</li>
+				<li>
+					<div class="logo">
+						<img class="lazy" src="images/img_01.png" alt=""> 
+					</div>
+					<div class="fr">
+						<div class="praise">2621</div>	
+						<p>我是如何在第一个月就卖出1358盒面膜的</p>
+						<div class="month">10月</div>
+					</div>
+				</li>
+				<li>
+					<div class="logo">
+						<img class="lazy" src="images/img_01.png" alt=""> 
+					</div>
+					<div class="fr">
+						<div class="praise">2621</div>	
+						<p>我是如何在第一个月就卖出1358盒面膜的</p>
+						<div class="month">10月</div>
+					</div>
+				</li>
+			</ul>
+			<div id="pullUp">
+				<span class="pullUpIcon"></span><span class="pullUpLabel">向上滑动加载更多...</span>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+(function(){
+	var headHeight,pullDownOffset,myScroll,pullUpEl, pullUpOffset,generatedCount = 0;
+	var main = {
+			init : function(){
+				var is = this;
+				is.stopPra();
+				is.imgLoad();
+			},
+			stopPra : function(){
+				document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+			},
+			pullUpAction : function(){
+				setTimeout(function () {
+					var el, li, i;
+					el = document.getElementById('thelist');
+
+					for (i=0; i<3; i++) {
+						li = document.createElement('li');
+						li.innerHTML = '<div class="logo"><img class="lazy" src="images/img_01.png" alt=""> </div><div class="fr"><div class="praise">2621</div><p>'+(++generatedCount)+'我是如何在第一个月就卖出1358盒面膜的</p><div class="month">10月</div></div>';
+						el.appendChild(li, el.childNodes[0]);
+					}
+					
+					myScroll.refresh();		
+				}, 1000);	
+			},
+			loaded : function(){
+				pullUpEl = document.getElementById('pullUp');	
+				pullUpOffset = pullUpEl.offsetHeight;
+				
+				myScroll = new iScroll('wrapper', {
+					useTransition: true,
+					topOffset: pullDownOffset,
+					onRefresh: function () {
+						if (pullUpEl.className.match('loading')) {
+							pullUpEl.className = '';
+							pullUpEl.querySelector('.pullUpLabel').innerHTML = '向上滑动加载更多...';
+						}
+					},
+					onScrollMove: function () {
+						if (this.y < (this.maxScrollY - 5) && !pullUpEl.className.match('flip')) {
+							pullUpEl.className = 'flip';
+							pullUpEl.querySelector('.pullUpLabel').innerHTML = '松开刷新...';
+							this.maxScrollY = this.maxScrollY;
+							document.getElementById('wrapper').style.transform = 'translateY(-'+headHeight+'px)';
+							
+						} else if (this.y > (this.maxScrollY + 5) && pullUpEl.className.match('flip')) {
+							pullUpEl.className = '';
+							pullUpEl.querySelector('.pullUpLabel').innerHTML = '向上滑动加载更多...';
+							this.maxScrollY = pullUpOffset;
+						} else if( this.y > 5 ){
+							document.getElementById('wrapper').style.transform = 'translateY(0)';
+						}
+					},
+					onScrollEnd: function () {
+						if (pullUpEl.className.match('flip')) {
+							pullUpEl.className = 'loading';
+							pullUpEl.querySelector('.pullUpLabel').innerHTML = '正在加载...';				
+							main.pullUpAction();	
+						}
+					}
+				});
+				
+				setTimeout(function () { document.getElementById('wrapper').style.transform = 'translateX(0)'; }, 800);
+			},
+			//顶部图片加载后再获取高度
+			imgLoad : function(){
+				var n=1,
+				totalimg,
+				loadEachimg,
+				imgs = document.getElementById("head_box").getElementsByTagName("img");
+				for( var i=0; i<imgs.length; i++ ){
+					var imgsloadimg = imgs[i].getAttribute("loadimg"),
+						imgNum = ( 1 / imgs.length).toFixed(2);
+					imgs[i].setAttribute("src", imgsloadimg);
+						imgs[i].onload = function(){
+							var loadEach = Math.round(imgNum*(n++)*100),
+								totalimg = loadEach;
+								loadEachimg = loadEach;
+								this.removeAttribute("loadimg");
+						   //     loadEachP();
+							if(  totalimg>95 && totalimg<=100 || totalimg>=100 ){
+								headHeight = document.getElementById('head_box').offsetHeight;
+								document.getElementById('wrapper').style.top = ''+headHeight+'px';
+								main.loaded();
+							}
+						}
+					
+				}
+			}
+	}
+	main.init();
+})();
+
+
+</script>
+</body>
+</html>
