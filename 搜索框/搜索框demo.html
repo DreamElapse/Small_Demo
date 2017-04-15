@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    <style type="text/css">
+    	*{padding:0; margin:0; font-family: "微软雅黑";}
+		.search{width:450px; height:35px; color:#666; font-size:18px; line-height:35px; background:#efeff1; border-radius:40px; margin:100px auto; position:relative;}
+		.search p{ width:50px;padding-left:20px; display:inline-block; background:url(icon_01.jpg) no-repeat right center; cursor:pointer;}
+		.search input{ padding-left:20px; display:inline-block; width:200px; font-size:16px; color:#999; height:30px; background:#efeff1; border:none;}
+		.search i{ width:19px; height:17px; background:url(icon_02.jpg) no-repeat; display:inline-block;position:absolute; right:18px; top:9px; cursor:pointer;}
+		.search ul{ width:60px; height:100px; background:url(icon_03.png) no-repeat; color:#fff; position:absolute; top:19px; left:19px; opacity:0.8; display:none; }
+		.search li{ padding-left:14px; margin-top:24px; cursor:pointer; line-height:24px; height:26px; font-size:16px; font-weight:bold;}
+		.search li:hover{ background:#f40;}
+		.search	.two{ margin-top:6px;}
+        input{outline:0;}
+    </style>
+    <script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+    <script type="text/javascript">
+     $(function(){
+     	//--------商品与店铺选择------
+     	$('.pro').click(function(){
+     		$('.list').css('display','block');
+     	});
+     	$('.list').mouseleave(function(){
+     		$(this).delay(500).slideUp(300)
+     	});
+     	$('.list li').click(function(){
+     		var thisTxt = $(this).text();
+     		$('.pro').html(thisTxt);
+     		$(this).parent().css('display','')
+     	});
+
+	     // ------搜索框点击效果---------	
+		$('input').focus(function(e) {
+			if($(this).val()=='搜索商品或商铺'){
+				$(this).val('').css('color','#333')
+			}
+	    }).blur(function(e) {
+			if($(this).val()==''){
+				$(this).val('搜索商品或商铺').css('color','#999')
+			}
+		});
+     });
+    </script>
+    </head>
+    <body>
+    	<div class="search">
+    		<ul class="list">
+    			<li>商品</li>
+    			<li class="two">店铺</li>
+    		</ul>
+    		<p class="pro">商品</p>
+    		<input type="text" value="搜索商品或商铺">
+			<i></i>
+    	</div>
+    </body>
+</html>

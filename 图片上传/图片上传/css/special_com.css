@@ -1,0 +1,54 @@
+.spe_con{padding:.88rem 0 1.2rem;background:#fff;text-align:center;}
+.spe_con header.h3 img{width:3.4rem;padding-top:.5rem;}
+.spe_con header.h3 img.chirstLan{height:.51rem;}
+.spe_con header.h3 img.monkey{height:1.06rem;}
+.h3{text-align:center;font-size:.32rem;padding:.3rem 0 .2rem;line-height:.5rem;font-weight:bold;}
+.h3 p{font-size:.28rem;line-height:.64rem;padding-top:.3rem;font-weight:normal;}
+.specn{padding-top:.2rem;}
+.specn .speOne{border-bottom:.02rem solid rgba(252,194,194,.6);}
+
+.speOne h4{width:94%;margin:0 auto;text-align:left;}
+.speOne h4 span{display:inline-block;line-height:.34rem;}
+.speOne h4 span:nth-child(1){width:15%;margin-left:60%;height:1px;background:rgba(98,98,98,.8);position:relative;bottom:.1rem;}
+.speOne h4 span:nth-child(2){width:20%;padding-left:.06rem;}
+.speOne p,.spehead p{width:94%;margin:0 auto;padding:.3rem 0;line-height:.64rem;}
+.speOne h3{padding:.3rem 0 .5rem;width:94%;margin:0 auto;line-height:.6rem;color:#e3756d;}
+.speOne h3>a{display:inline-block;background:#e3756d;font-size:.26rem;margin-left:.2rem;padding:0 .3rem;color:#fff;border-radius:.08rem;padding-top:.04rem;}
+.speOne p span{letter-spacing:-.06rem;}
+.speOne h5{width:100%;height:.1rem;width:94%;margin:0 auto;border-top:1px solid rgba(98,98,98,.6);}
+
+/*chirstmas style*/
+.goinChrist{width:2rem;height:3.76rem;position:fixed;top:-2rem;left:0;z-index:80;}
+.goinChrist img{width:2rem;height:3.76rem;}
+.actgz{background:rgba(0,58,26,.9);width:100%;height:100%;position:fixed;top:0;z-index:120;}
+.newY{background:rgba(0,0,0,.9);}
+.speOne h3{position:relative;}
+.speOne h3 span{text-align:left;display:block;line-height:.42rem;width:70%;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;}
+.speOne h3 span a{font-size:.26rem;}
+.speOne h3 span i{color:#ababab;font-size:.26rem;margin-left:.2rem;text-decoration:line-through;}
+.speOne h3>a{position:absolute;right:0;top:.4rem;}
+.actgacn{width:100%;height:100%;position:relative;}
+.actgacn .chirstCls{position:absolute;right:0;top:0;width:1.61rem;height:1.61rem;}
+.actgacn .chirstCls img{width:1.61rem;height:1.61rem;}
+.snowImg{width:100%;height:auto;position:fixed;left:0;bottom:0;z-index:115;}
+.actcon{width:81.25%;margin:0 auto;color:#fff;padding-top:.5rem;}
+.actcon h4{color:#feb913;font-size:.36rem;line-height:.44rem;}
+.actcon h5{width:100%;text-align:center;margin:.1rem 0 -.2rem;}
+.actcon h5 img{width:5.18rem;height:5.28rem;}
+.actcon p{font-size:.26rem;line-height:.46rem;padding-top:.1rem;}
+
+/*speciaListNew style*/
+.spetop{width:100%;height:auto;position:relative;margin-bottom:.3rem;}
+.spetop>h4{width:97%;position:absolute;left:0;bottom:0;text-align:left;padding-left:.2rem;font-weight:bold;color:#fff;font-size:.32rem;line-height:.6rem;overflow:hidden;display:block;white-space:nowrap;text-overflow:ellipsis;}
+.newspecn,footer{width:93.75%;margin:0 auto;}
+.newspecn .speOne{border:none;}
+.newspecn .speOne h3>a{width:1.8rem;height:.6rem;padding:0;background:none;color:#3cc3b8;border:.02rem solid #3cc3b8;border-radius:.34rem;top:.42rem;}
+
+footer p{padding-top:.4rem;line-height:.5rem;}
+
+@media screen and (max-width:380px) and (min-width:360px){
+    .actcon{width:87.5%;}
+    .actcon p{line-height:.5rem;padding-top:.2rem;}
+}
+
+

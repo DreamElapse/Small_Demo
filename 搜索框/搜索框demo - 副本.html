@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    <style type="text/css">
+    	*{padding:0; margin:0; font-family: "微软雅黑";}
+		.search{width:450px; height:35px; color:#666; font-size:18px; line-height:35px; background:#efeff1; border-radius:40px; margin:100px auto; position:relative;}
+		.search p{ width:50px;padding-left:20px; display:inline-block; background:url(icon_01.jpg) no-repeat right center; cursor:pointer;}
+		.search input{ padding-left:20px; display:inline-block; width:200px; font-size:16px; color:#999; height:30px; background:#efeff1; border:none;}
+		.search i{ width:19px; height:17px; background:url(icon_02.jpg) no-repeat; display:inline-block;position:absolute; right:18px; top:9px; cursor:pointer;}
+		.search ul{ width:60px; height:100px; background:url(icon_03.png) no-repeat; color:#fff; position:absolute; top:19px; left:19px; opacity:0.8; display:none; }
+		.search li{ padding-left:14px; margin-top:24px; cursor:pointer; line-height:24px; height:26px; font-size:16px; font-weight:bold;}
+		.search li:hover{ background:#f40;}
+		.search	.two{ margin-top:6px;}
+    </style>
+    <script type="text/javascript">
+        window.onload = function(){
+            var pro = document.getElementById("pro")
+            var list  = document.getElementById("list") ;
+            pro.onclick = function(){
+               
+                list.style.display = "block"
+            }
+            list.onmouseover = function(){
+                this.style.display = "block"
+            }
+            list.onmouseout = function(){
+                this.style.display = "none"
+            }
+
+        }
+     
+    </script>
+    </head>
+    <body>
+    	<div class="search">
+    		<ul id="list">
+    			<li>商品</li>
+    			<li class="two">店铺</li>
+    		</ul>
+    		<p id="pro">商品</p>
+    		<input type="text" value="搜索商品或商铺">
+			<i></i>
+    	</div>
+    </body>
+</html>
