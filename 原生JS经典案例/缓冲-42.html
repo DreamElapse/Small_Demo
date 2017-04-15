@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style type="text/css">
+.w1{ width:300px; height:300px; overflow:hidden; position:relative; float:left; margin:10px;}
+*{ margin:0px; padding:0px;}
+.p1{ width:300px; height:300px; position:absolute}
+.p2{ width:300px; height:30px; position:absolute; top:300px;color: #FFF; background:rgba(20,17,17,0.5); line-height:30px; text-align:center; font-family:"微软雅黑"; font-size:14px; }
+</style>
+<script>
+window.onload=function()
+{
+	var q1=document.getElementsByClassName('p1')[0];
+	var qq=document.getElementsByClassName('p2');
+	q1.onmouseover=function()
+	{
+		over(270)
+	}
+		q1.onmouseout=function()
+	{
+		over(300)
+	}
+}
+var timr=null;
+function over(wz)
+{
+	 clearInterval(timr)
+	var qq=document.getElementsByClassName('p2')[0];
+	timr=setInterval(function(){
+		sp=0;
+		if(qq.offsetTop>wz)
+		{
+			sp=-10
+		}
+		else
+		{
+			sp=10
+		}
+		if(qq.offsetTop==wz)
+		{
+			clearInterval(timr)
+		}
+		else
+		{
+			qq.style.top=qq.offsetTop+sp+"px"
+		}
+		},35)
+}
+</script>
+</head>
+
+<body>
+        <div class="w1">
+        <div class="p1"><img src="img/9.jpg"></div>
+        <div class="p2">11.11特价</div>
+        </div>
+        <div class="w1">
+       <div class="p1"><img src="img/10.jpg"></div>
+        <div class="p2">11.11特价</div>
+        </div>
+</body>
+</html>

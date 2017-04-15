@@ -1,0 +1,257 @@
+@charset "utf-8";
+
+/*common style*/
+body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,form,fieldset,legend,button,input,textarea,th,td,span,i{margin:0;padding:0}table{border-collapse:collapse;border-spacing:0}
+html{-webkit-tap-highlight-color:transparent;overflow-x:hidden;min-width:.64rem;height:100%;font-size:312.5%;}
+body{overflow-x:hidden;min-height:100%;font-family:arial,Microsoft Yahei;font-size:.24em;color:#545454;line-height:1.5em;}i{font-style:inherit;}
+img{border:0;vertical-align:middle;}h1,h2,h3,h4,h5,h6{font-weight:normal}button,input,textarea,select{font-family:"Microsoft Yahei";}
+
+ul,ol,li{list-style-type:none;}.hide{display:none;}a{text-decoration:none;color:#626262;}
+.cf{zoom:1;}
+.cf:after{content:'';display:block;clear:both;height:0;overflow:hidden;visibility:hidden;}
+.left,.fd{float:left;}.right{float:right;}img{max-width:100%;}a img{border:none;}
+.ctext{color:#86d4cc;}
+
+/*HD special*/
+#warp{max-width:640px;position:relative;margin:0 auto;height:auto;width:100%;background:#fff;overflow:hidden;}
+@keyframes downapp{
+	0%{width:2.73rem;height:2.16rem;top:2.56rem;right:.26rem;}
+	18%{width:2.78rem;height:2.2rem;top:2.54rem;right:.24rem;}
+	32%{width:2.86rem;height:2.26rem;top:2.5rem;right:.2rem;}
+	50%{width:2.90rem;height:2.29rem;top:2.48rem;right:.18rem;}
+	70%{width:2.86rem;height:2.26rem;top:2.5rem;right:.2rem;}
+	88%{width:2.78rem;height:2.2rem;top:2.54rem;right:.24rem;}
+	100%{width:2.73rem;height:2.16rem;top:2.56rem;right:.26rem;}	
+}
+@-moz-keyframes downapp{
+	0%{width:2.73rem;height:2.16rem;top:2.56rem;right:.26rem;}
+	18%{width:2.78rem;height:2.2rem;top:2.54rem;right:.24rem;}
+	32%{width:2.86rem;height:2.26rem;top:2.5rem;right:.2rem;}
+	50%{width:2.90rem;height:2.29rem;top:2.48rem;right:.18rem;}
+	70%{width:2.86rem;height:2.26rem;top:2.5rem;right:.2rem;}
+	88%{width:2.78rem;height:2.2rem;top:2.54rem;right:.24rem;}
+	100%{width:2.73rem;height:2.16rem;top:2.56rem;right:.26rem;}	
+}
+@-webkit-keyframes downapp{
+	0%{width:2.73rem;height:2.16rem;top:2.56rem;right:.26rem;}
+	18%{width:2.78rem;height:2.2rem;top:2.54rem;right:.24rem;}
+	32%{width:2.86rem;height:2.26rem;top:2.5rem;right:.2rem;}
+	50%{width:2.90rem;height:2.29rem;top:2.48rem;right:.18rem;}
+	70%{width:2.86rem;height:2.26rem;top:2.5rem;right:.2rem;}
+	88%{width:2.78rem;height:2.2rem;top:2.54rem;right:.24rem;}
+	100%{width:2.73rem;height:2.16rem;top:2.56rem;right:.26rem;}	
+}
+@-o-keyframes downapp{
+	0%{width:2.73rem;height:2.16rem;top:2.56rem;right:.26rem;}
+	18%{width:2.78rem;height:2.2rem;top:2.54rem;right:.24rem;}
+	32%{width:2.86rem;height:2.26rem;top:2.5rem;right:.2rem;}
+	50%{width:2.90rem;height:2.29rem;top:2.48rem;right:.18rem;}
+	70%{width:2.86rem;height:2.26rem;top:2.5rem;right:.2rem;}
+	88%{width:2.78rem;height:2.2rem;top:2.54rem;right:.24rem;}
+	100%{width:2.73rem;height:2.16rem;top:2.56rem;right:.26rem;}	
+}
+
+.ent_down{position:absolute;
+animation-name:downapp;animation-duration:.8s;animation-timing-function: linear;animation-iteration-count: infinite;animation-direction: alternate;animation-play-state: running;
+-moz-animation-name:downapp;-moz-animation-duration:.8s;-moz-animation-timing-function:linear;-moz-animation-iteration-count:infinite;-moz-animation-direction:alternate;-moz-animation-play-state:running;
+-webkit-animation-name:downapp;-webkit-animation-duration:.8s;-webkit-animation-timing-function:linear;-webkit-animation-iteration-count:infinite;-webkit-animation-direction:alternate;-webkit-animation-play-state:running;
+-o-animation-name:downapp;-o-animation-duration:.8s;-o-animation-timing-function:linear;-o-animation-iteration-count:infinite;-o-animation-direction:alternate;-o-animation-play-state:running;
+}
+.ent_down img{width:100%;}
+
+/* leaderboard style*/
+.myself,.shareLead{width:100%;height:2.4rem;background:#f63563;text-align:center;box-shadow:0 .05rem .08rem rgba(225,88,68,.5);position:relative;z-index:10;color:#fff;margin:0 auto;top:3rem;}
+.myself,.No_one,.No_fifth,.No_other{opacity:0;}
+.myself dl{width:100%;height:100%;}
+.unpartic{background:url(../football/hd_img/unpartic.jpg) no-repeat;background-size:cover;}
+.unpartic p{padding:.2rem 0 0 .3rem;text-align:left;}
+.unpartic p a{color:#f7e920;}
+.partic{background:#fbbe3f url(../football/hd_img/partic.jpg) no-repeat;background-size:contain;display:none;}
+.partic dt,.partic dd,.No_one dt,.No_one dd{float:left;position:relative;z-index:10;}
+.partic dt{width:35%;}.partic dd{width:65%;}
+dt span,dt img,dt a{display:block;color:#fff;}
+.partic dt{padding-top:.39rem;}
+.partic dt img{width:1.2rem;height:1.2rem;border:.07rem solid #fff;border-radius:50%;background:#fff;margin-left:.56rem;}
+.partic dt span{padding:.16rem 0 0 .2rem;color:#fff;}
+.partic dd p{padding:.14rem 0 0 .1rem;display:table;}
+.partic dd p img{width:.39rem;height:.32rem;}
+.partic dd p span{font-size:.58rem;position:relative;bottom:-.04rem;padding:0 .04rem;}
+.partic dd p:nth-child(1) span{color:#fff112;}
+.partic dd ul{padding-top:.2rem;}
+.partic dd ul li{float:left;width:1.56rem;line-height:.46rem;padding:.04rem;background:#fff;border-radius:.27rem;}
+.partic dd ul li:nth-child(1){margin-right:.3rem;}
+.partic dd ul a{display:block;border-radius:.27rem;border:.02rem solid #ff5757;}
+.myself dl dd,.No_one dl dd{margin-top:.2rem;}
+.myself dl dd a{color:#ff5757;}
+.No_one{margin:-.1rem auto;width:93.75%;background:#ff7961;position:relative;z-index:8;text-align:center;box-shadow:0 .05rem .08rem rgba(225,88,68,.5);top:3rem;}
+.No_one dl{padding:.24rem 0 .14rem;}
+.No_one dt,.No_one dd{height:1.2rem;color:#fff;}
+.No_one dt{width:30%;margin-top:.18rem;border-right:1px solid #ed5236;}.No_one dd{width:50%;}
+.No_one dt>a img{width:.8rem;height:.8rem;border-radius:50%;margin:0 auto;}
+.first_g{position:absolute;left:.4rem;top:-.26rem;}
+.first_g img{width:.57rem;height:.48rem;}
+.No_one dt span{width:100%;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;}
+.No_one dd{text-align:left;line-height:1.2rem;padding-left:.7rem;}
+.No_one dd span{font-size:.58rem;position:relative;bottom:-.04rem;padding-right:.04rem;}
+.No_one dd span:nth-child(2){padding-left:.4rem;}
+
+.No_fifth{width:87.5%;margin:0 auto;background:#ffb799;position:relative;z-index:7;padding:.2rem .02rem .02rem;top:3rem}
+.No_other{width:81.25%;margin:.04rem auto;background:#fff;border:1px solid #f00;border-top:none;padding:.02rem;top:3rem;position:relative;}
+table{width:100%;color:#ff5d5c;table-layout:fixed;}
+table tr{line-height:.44rem;}
+table tr td{padding:0 .02rem;}
+table tr td:nth-child(1){width:34%;padding:0 2% 0 8%;height:100%;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;}
+table tr td:nth-child(2){width:20%;}
+table tr td:nth-child(3){width:36%;text-align:right;padding-right:6%;}
+.No_other table tr:nth-of-type(even){background:#ffddcf;}
+.No_fifth table tr td span{font-size:.36rem;}
+.No_fifth table td:nth-child(1){width:32%;}
+.No_fifth table td:nth-child(2){}
+.No_fifth table td:nth-child(3){width:31%;}
+.tshi p{line-height:.6rem;text-align:center;}
+
+/*new attr style*/
+.shareLead{background:#280000 url(../football/hd_img/shareLead.png) no-repeat center top;background-size:contain;}
+.shareLead ul{width:70%;margin:0 auto;padding-top:1.6rem;}
+.shareLead ul li{float:left;width:50%;text-align:center;}
+.shareLead ul li a{display:inline-block;}
+.shareLead ul li a{border-radius:.31rem;width:1.78rem;background:#fff;color:#ff5757;padding:.06rem;line-height:.5rem;}
+.shareLead ul li a span{display:block;border-radius:.42rem;border:.02rem solid #ff5757;}
+
+@media screen and (min-width:320px){}
+
+@media screen and (min-width:360px){
+	
+	@keyframes downapp{
+		0%{width:2.73rem;height:2.16rem;top:3.06rem;right:.26rem;}
+		18%{width:2.78rem;height:2.2rem;top:3.04rem;right:.24rem;}
+		32%{width:2.86rem;height:2.26rem;top:3rem;right:.2rem;}
+		50%{width:2.90rem;height:2.29rem;top:2.98rem;right:.18rem;}
+		70%{width:2.86rem;height:2.26rem;top:3rem;right:.2rem;}
+		88%{width:2.78rem;height:2.2rem;top:3.04rem;right:.24rem;}
+		100%{width:2.73rem;height:2.16rem;top:3.06rem;right:.26rem;}	
+	}
+	@-moz-keyframes downapp{
+		0%{width:2.73rem;height:2.16rem;top:3.06rem;right:.26rem;}
+		18%{width:2.78rem;height:2.2rem;top:3.04rem;right:.24rem;}
+		32%{width:2.86rem;height:2.26rem;top:3rem;right:.2rem;}
+		50%{width:2.90rem;height:2.29rem;top:2.98rem;right:.18rem;}
+		70%{width:2.86rem;height:2.26rem;top:3rem;right:.2rem;}
+		88%{width:2.78rem;height:2.2rem;top:3.04rem;right:.24rem;}
+		100%{width:2.73rem;height:2.16rem;top:3.06rem;right:.26rem;}	
+	}
+	@-webkit-keyframes downapp{
+		0%{width:2.73rem;height:2.16rem;top:3.06rem;right:.26rem;}
+		18%{width:2.78rem;height:2.2rem;top:3.04rem;right:.24rem;}
+		32%{width:2.86rem;height:2.26rem;top:3rem;right:.2rem;}
+		50%{width:2.90rem;height:2.29rem;top:2.98rem;right:.18rem;}
+		70%{width:2.86rem;height:2.26rem;top:3rem;right:.2rem;}
+		88%{width:2.78rem;height:2.2rem;top:3.04rem;right:.24rem;}
+		100%{width:2.73rem;height:2.16rem;top:3.06rem;right:.26rem;}	
+	}
+	@-o-keyframes downapp{
+		0%{width:2.73rem;height:2.16rem;top:3.06rem;right:.26rem;}
+		18%{width:2.78rem;height:2.2rem;top:3.04rem;right:.24rem;}
+		32%{width:2.86rem;height:2.26rem;top:3rem;right:.2rem;}
+		50%{width:2.90rem;height:2.29rem;top:2.98rem;right:.18rem;}
+		70%{width:2.86rem;height:2.26rem;top:3rem;right:.2rem;}
+		88%{width:2.78rem;height:2.2rem;top:3.04rem;right:.24rem;}
+		100%{width:2.73rem;height:2.16rem;top:3.06rem;right:.26rem;}	
+	}
+.partic dt span{padding:.2rem 0 0;}
+
+}
+
+@media screen and (min-width:370px) and (max-width:380px){
+.myself, .shareLead{height:2.8rem;}
+.shareLead ul{padding-top:2rem;}
+}
+
+@media screen and (min-width:410px){
+html{font-size:400%;}
+	@keyframes downapp{
+		0%{width:2.73rem;height:2.16rem;top:2.56rem;right:.26rem;}
+		18%{width:2.78rem;height:2.2rem;top:2.54rem;right:.24rem;}
+		32%{width:2.86rem;height:2.26rem;top:2.5rem;right:.2rem;}
+		50%{width:2.90rem;height:2.29rem;top:2.48rem;right:.18rem;}
+		70%{width:2.86rem;height:2.26rem;top:2.5rem;right:.2rem;}
+		88%{width:2.78rem;height:2.2rem;top:2.54rem;right:.24rem;}
+		100%{width:2.73rem;height:2.16rem;top:2.56rem;right:.26rem;}	
+	}
+	@-moz-keyframes downapp{
+		0%{width:2.73rem;height:2.16rem;top:2.56rem;right:.26rem;}
+		18%{width:2.78rem;height:2.2rem;top:2.54rem;right:.24rem;}
+		32%{width:2.86rem;height:2.26rem;top:2.5rem;right:.2rem;}
+		50%{width:2.90rem;height:2.29rem;top:2.48rem;right:.18rem;}
+		70%{width:2.86rem;height:2.26rem;top:2.5rem;right:.2rem;}
+		88%{width:2.78rem;height:2.2rem;top:2.54rem;right:.24rem;}
+		100%{width:2.73rem;height:2.16rem;top:2.56rem;right:.26rem;}	
+	}
+	@-webkit-keyframes downapp{
+		0%{width:2.73rem;height:2.16rem;top:2.56rem;right:.26rem;}
+		18%{width:2.78rem;height:2.2rem;top:2.54rem;right:.24rem;}
+		32%{width:2.86rem;height:2.26rem;top:2.5rem;right:.2rem;}
+		50%{width:2.90rem;height:2.29rem;top:2.48rem;right:.18rem;}
+		70%{width:2.86rem;height:2.26rem;top:2.5rem;right:.2rem;}
+		88%{width:2.78rem;height:2.2rem;top:2.54rem;right:.24rem;}
+		100%{width:2.73rem;height:2.16rem;top:2.56rem;right:.26rem;}	
+	}
+	@-o-keyframes downapp{
+		0%{width:2.73rem;height:2.16rem;top:2.56rem;right:.26rem;}
+		18%{width:2.78rem;height:2.2rem;top:2.54rem;right:.24rem;}
+		32%{width:2.86rem;height:2.26rem;top:2.5rem;right:.2rem;}
+		50%{width:2.90rem;height:2.29rem;top:2.48rem;right:.18rem;}
+		70%{width:2.86rem;height:2.26rem;top:2.5rem;right:.2rem;}
+		88%{width:2.78rem;height:2.2rem;top:2.54rem;right:.24rem;}
+		100%{width:2.73rem;height:2.16rem;top:2.56rem;right:.26rem;}	
+	}
+.partic dt span{padding:.16rem 0 0;}
+}
+
+@media screen and (min-width:480px){
+html{font-size:469%;background:#fff;}
+
+}
+
+@media screen and (min-width:600px) and (max-width:610px){
+	@keyframes downapp{
+		0%{width:2.73rem;height:2.16rem;top:3.06rem;right:.26rem;}
+		18%{width:2.78rem;height:2.2rem;top:3.04rem;right:.24rem;}
+		32%{width:2.86rem;height:2.26rem;top:3rem;right:.2rem;}
+		50%{width:2.90rem;height:2.29rem;top:2.98rem;right:.18rem;}
+		70%{width:2.86rem;height:2.26rem;top:3rem;right:.2rem;}
+		88%{width:2.78rem;height:2.2rem;top:3.04rem;right:.24rem;}
+		100%{width:2.73rem;height:2.16rem;top:3.06rem;right:.26rem;}	
+	}
+	@-moz-keyframes downapp{
+		0%{width:2.73rem;height:2.16rem;top:3.06rem;right:.26rem;}
+		18%{width:2.78rem;height:2.2rem;top:3.04rem;right:.24rem;}
+		32%{width:2.86rem;height:2.26rem;top:3rem;right:.2rem;}
+		50%{width:2.90rem;height:2.29rem;top:2.98rem;right:.18rem;}
+		70%{width:2.86rem;height:2.26rem;top:3rem;right:.2rem;}
+		88%{width:2.78rem;height:2.2rem;top:3.04rem;right:.24rem;}
+		100%{width:2.73rem;height:2.16rem;top:3.06rem;right:.26rem;}	
+	}
+	@-webkit-keyframes downapp{
+		0%{width:2.73rem;height:2.16rem;top:3.06rem;right:.26rem;}
+		18%{width:2.78rem;height:2.2rem;top:3.04rem;right:.24rem;}
+		32%{width:2.86rem;height:2.26rem;top:3rem;right:.2rem;}
+		50%{width:2.90rem;height:2.29rem;top:2.98rem;right:.18rem;}
+		70%{width:2.86rem;height:2.26rem;top:3rem;right:.2rem;}
+		88%{width:2.78rem;height:2.2rem;top:3.04rem;right:.24rem;}
+		100%{width:2.73rem;height:2.16rem;top:3.06rem;right:.26rem;}	
+	}
+	@-o-keyframes downapp{
+		0%{width:2.73rem;height:2.16rem;top:3.06rem;right:.26rem;}
+		18%{width:2.78rem;height:2.2rem;top:3.04rem;right:.24rem;}
+		32%{width:2.86rem;height:2.26rem;top:3rem;right:.2rem;}
+		50%{width:2.90rem;height:2.29rem;top:2.98rem;right:.18rem;}
+		70%{width:2.86rem;height:2.26rem;top:3rem;right:.2rem;}
+		88%{width:2.78rem;height:2.2rem;top:3.04rem;right:.24rem;}
+		100%{width:2.73rem;height:2.16rem;top:3.06rem;right:.26rem;}	
+	}
+}
+
+@media screen and (min-width:640px){
+html{font-size:625%;background:#e2e2e2;}
+}

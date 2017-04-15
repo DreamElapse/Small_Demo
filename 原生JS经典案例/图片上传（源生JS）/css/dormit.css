@@ -1,0 +1,56 @@
+@charset "utf-8";
+
+#warp{max-width:640px;position:relative;margin:0 auto;height:auto;width:100%;background:#fff;overflow:hidden;}
+.greenbg #warp{background:#bbe172;}
+footer{width:100%;height:.8rem;position:fixed;left:0;bottom:0;background:#fff;box-shadow:0px -2px 5px rgba(0,0,0,.3);text-align:center;z-index:99;}
+footer button{background:rgba(132,216,209,1);border:none;border-radius:.06rem;color:#fff;font-size:.3rem;width:84.5%;height:.7rem;margin-top:.2rem;}
+footer a{display:inline-block;width:100%;text-align:center;line-height:.8rem;background:#3bc4b7;color:#fff;font-size:.36rem;}
+.share_down{max-width:640px;width:100%;position:fixed;top:0;z-index:100;background:rgba(245,245,245,.85);height:1.1rem;overflow:hidden;}
+.share_down .appLogo{float:left;width:3.38rem;margin:.2rem 0 0 .4rem;}
+.share_down .downApp{float:right;width:1.63rem;height:.5rem;margin:.3rem .4rem 0 0;}
+.share_down .downApp a,.share_down .downApp img{display:block;}
+.share_down .appLogo img{width:3.41rem;height:.7rem;}
+.share_down .downApp img{width:1.63rem;height:.5rem;}
+.laud_box button img{width:100%;}
+
+.container{padding:1.1rem 0;}
+.container .bormPic{position:relative;}
+ul{width:86%;margin:0 auto;}
+ul li{float:left;width:50%;text-align:center;}
+ul li a{display:inline-block;line-height:.6rem;width:90%;}
+.searchNum{height:.6rem;width:87.5%;margin:.2rem auto .5rem;background:#fff;border-radius:.1rem;}
+.searchNum input,.searchNum button{display:block;float:left;}
+.searchNum input{line-height:.6rem;width:78%;border:none;margin-left:2%;font-size:.28rem;}
+.searchNum button{line-height:.5rem;width:19%;text-align:center;border:none;background:#ea6200;border-radius:.06rem;color:#fff;font-size:.3rem;margin-top:.04rem;}
+.act_man{width:100%;overflow:hidden;}
+.act_man .dlcon{width:93.75%;margin:0 auto;}
+.dlcon dl{width:48.3%;margin-top:.2rem;background:#fff;border-radius:.05rem;}
+.dlcon dl:nth-child(odd){float:left;}
+.dlcon dl:nth-child(even){float:right;}
+.dlcon dl dt{text-align:center;position:relative;width:90%;margin:5% auto;overflow:hidden;}
+.dlcon dl dt a{display:block;width:100%;}
+.dlcon dl dt img{max-width:inherit;position:absolute;left:50%;top:50%;-webkit-transform:translate(-50%,-50%);-moz-transform:translate(-50%,-50%);-o-transform:translate(-50%,-50%);-ms-transform:translate(-50%,-50%);transform:translate(-50%,-50%);}
+.dlcon dl dt span.bh{width:1.45rem;line-height:.5rem;background:#ec6a41;color:#fff;position:absolute;top:0;right:0;border-left:.05rem solid #fff;border-bottom:.05rem solid #fff;border-radius:0 .05rem 0 .5rem;}
+.dlcon dl dd h4{font-weight:bold;line-height:.5rem;padding-left:.1rem;width:92%;overflow:hidden;display:block;white-space:nowrap;text-overflow:ellipsis;}
+.dlcon dl dd h3{padding:0 .1rem .1rem 0;text-align:left;font-size:.28rem;line-height:.44rem;}
+.dlcon dl dd h3 img{width:.33rem;height:.31rem;margin-left:.2rem;-webkit-transform:translateY(-20%);-moz-transform:translateY(-20%);-o-transform:translateY(-20%);-ms-transform:translateY(-20%);transform:translateY(-20%);}
+.dlcon dl dd h3 span{font-size:.26rem;padding-left:.06rem;color:#3cc3b8;}
+
+.pub{width:100%;height:100%;position:fixed;z-index:100;background:rgba(0,0,0,.85);top:0;left:0;display:none;}
+.pub span{display:block;margin:0 auto;text-align:center;}
+.pub span:nth-child(1){width:60%;padding-top:20%;}
+.pub span:nth-child(2){line-height:1.2rem;color:#fff;}
+
+.lkact{width:1.1rem;height:.75rem;position:absolute;right:-.1rem;top:.1rem;}
+.lkact img{width:.3rem;height:.22rem;vertical-align: top;}
+.lkact span{display:inline-block;width:.62rem;color:#fff;line-height:.3rem;font-size:.26rem;text-align:right;}
+.hdgz{width:100%;position:fixed;left:0;top:1.1rem;background:rgba(0,0,0,.9);z-index:110;display:none;}
+.hdgz .close{position:absolute;right:0;top:0;}
+.hdgz .close img{width:1.61rem;height:1.61rem;}
+.hdgz .gzbox{padding:.7rem .4rem 0;font-size:.26rem;color:#fff;}
+.hdgz .gzbox p{padding-top:.2rem;letter-spacing:.02rem;}
+.hdgz .gzbox h3{font-size:.32rem;color:#feb913;}
+.hdgz .enbox{width:100%;text-align:right;padding-right:.1rem;margin-top:1.3rem;}
+.hdgz .enbox p{padding-right:.2rem;color:rgba(255,255,255,.8);font-size:.26rem;}
+
+.hopeOder footer{position:inherit;box-shadow:none;text-align:left;left:inherit;bottom:inherit;z-index:inherit;height:auto;margin-top:.1rem;}

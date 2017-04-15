@@ -1,0 +1,241 @@
+/*author: Yoruni*/
+*{
+	padding: 0px;
+	margin: 0px;
+	font-size: 14px;
+	font-family: "Microsoft YaHei";
+	list-style: none;
+	border: none;
+	color: #494949;
+}
+a{
+	text-decoration: none;
+}
+input{
+	outline: none;
+}
+body{
+	padding: 48px 0px 54px;
+	background-color: #efefef;
+}
+header{
+	width: 100%; height: 47px;
+	background-color: #fff;
+	border-bottom: 1px #de2a62 solid;
+	position: fixed;
+	top: 0px; left: 0px;
+	z-index: 9999;
+	overflow: hidden;
+}
+header span,header div{
+	height: 47px;
+	float: left;
+}
+span a{
+	display: block;
+	width: 100%; height: 100%;
+}
+footer{
+	width: 100%; height: 47px;
+	background-color: #fff;
+	border-top: 1px #ddd solid;
+	position: fixed;
+	bottom: 0px; left: 0px;
+	z-index: 9999;
+	overflow: hidden;
+}
+footer ul{
+	width: 100%; height: 47px;
+	overflow: hidden;
+}
+footer li{
+	float: left;
+	width: 20%; height: 47px;
+}
+footer li a{
+	display: block;
+	width: 100%; height: 47px;
+}
+
+/*关于每个页面中底部功能菜单的当前状态，请认真看下面注释掉的代码*/
+footer li:nth-child(1){
+	background: url(../img/home.png) no-repeat center center;
+}
+/*ul li.homesel{
+	background-image: url(../img/homesel.png);
+}*/
+footer li:nth-child(2){
+	background: url(../img/menu.png) no-repeat center center;
+}
+/*ul li.menusel{
+	background-image: url(../img/menusel.png);
+}*/
+footer li:nth-child(3){
+	background: url(../img/search.png) no-repeat center center;
+}
+/*ul li.searchsel{
+	background-image: url(../img/searchsel.png);
+}*/
+footer li:nth-child(4){
+	background: url(../img/shopcart.png) no-repeat center center;
+}
+/*ul li.shopcartsel{
+	background-image: url(../img/shopcartsel.png);
+}*/
+footer li:nth-child(5){
+	background: url(../img/user.png) no-repeat center center;
+}
+/*ul li.usersel{
+	background-image: url(../img/usersel.png);
+}*/
+
+.fadein1{
+	animation: fadeIn 2s linear 0.1s forwards;
+	-webkit-animation: fadeIn 2s linear 0.1s forwards;
+}
+.fadein2{
+	animation: fadeIn 2s linear 0.2s forwards;
+	-webkit-animation: fadeIn 2s linear 0.2s forwards;
+}
+.fadein3{
+	animation: fadeIn 2s linear 0.3s forwards;
+	-webkit-animation: fadeIn 2s linear 0.3s forwards;
+}
+/*淡入淡出效果*/
+@-webkit-keyframes fadeIn{
+	from{
+		opacity: 0;
+	}
+	to{
+		opacity: 1;
+	}
+}
+@keyframes fadeIn{
+	from{
+		opacity: 0;
+	}
+	to{
+		opacity: 1;
+	}
+}
+@-webkit-keyframes fadeOut{
+	from{
+		opacity: 1;
+	}
+	to{
+		opacity: 0;
+	}
+}
+@keyframes fadeOut{
+	from{
+		opacity: 1;
+	}
+	to{
+		opacity: 0;
+	}
+}
+/*点击效果*/
+@-webkit-keyframes domTap{
+	0%{
+		background-color: #fff;
+	}
+	40%{
+		background-color: #ddd;
+	}
+	80%{
+		background-color: #fff;
+	}
+}
+@keyframes domTap{
+	0%{
+		background-color: #fff;
+	}
+	40%{
+		background-color: #ddd;
+	}
+	80%{
+		background-color: #fff;
+	}
+}
+/**/
+@-webkit-keyframes addStay{
+	from{
+		opacity: 0;
+		left: -100%;
+	}
+	to{
+		opacity: 1;
+		left: 0%;
+	}
+}
+@keyframes addStay{
+	from{
+		opacity: 0;
+		left: -100%;
+	}
+	to{
+		opacity: 1;
+		left: 0%;
+	}
+}
+@-webkit-keyframes addEnd{
+	from{
+		opacity: 1;
+		left: 0%;
+	}
+	to{
+		opacity: 0;
+		left: -100%;
+	}
+}
+@keyframes addEnd{
+	from{
+		opacity: 1;
+		left: 0%;
+	}
+	to{
+		opacity: 0;
+		left: -100%;
+	}
+}
+/**/
+@-webkit-keyframes csStay{
+	from{
+		opacity: 0;
+		bottom: -100px;
+	}
+	to{
+		opacity: 1;
+		bottom: 48px;
+	}
+}
+@keyframes csStay{
+	from{
+		opacity: 0;
+		bottom: -100px;
+	}
+	to{
+		opacity: 1;
+		bottom: 48px;
+	}
+}
+@-webkit-keyframes csEnd{
+	from{
+		opacity: 1;
+		bottom: 48px;
+	}
+	to{
+		opacity: 0;
+		bottom: -100px;
+	}
+}
+@keyframes csEnd{
+	from{
+		opacity: 1;
+		bottom: 48px;
+	}
+	to{
+		opacity: 0;
+		bottom: -100px;
+	}
+}

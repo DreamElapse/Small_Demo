@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	    <meta name="author" content="Bantes <admin@aoh.cc>" />
+	    <meta name="apple-mobile-web-app-capable" content="yes"/>
+	    <meta name="full-screen" content="true"/>
+	    <meta name="screen-orientation" content="portrait"/>
+	    <meta name="x5-fullscreen" content="true"/>
+	    <meta name="360-fullscreen" content="true"/>
+	    <meta name="renderer" content="webkit">
+	    <meta http-equiv="Cache-Control" content="no-siteapp">
+	    <meta name="format-detection" content="telephone=no">
+		<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+	  
+	</head>
+	<style>
+		.shakeBox {
+			    position: fixed;
+			    height: 100%;
+			    width: 100%;
+			    top: 0;
+			    left: 0;
+			    background-color: #25333B;
+		}
+		
+		.lay-verical {
+			display: table;
+		}
+		
+		.layIn {
+			display: table-cell;
+			vertical-align: middle;
+		}
+		img {
+			width: 50%;
+		}
+		.shakerow {
+			text-align: center;
+		}
+		
+		.hide {display: none;}
+		
+		.shakerow {
+				transition: all 0.5s;
+				-moz-transition: all 0.5s ease; /* Firefox 4 */
+				-webkit-transition: all 0.5s ease; /* Safari 和 Chrome */
+		}
+		
+		.shakeUp {
+			    border-bottom: 3px solid #AFBEC8;
+		}
+		 .shakeDown {
+		 	border-top: 3px solid #AFBEC8;
+		 }
+		.shakeUp img, .shakeDown img {
+			    margin-bottom: -3px;
+		}
+		.actionMove {
+			margin-bottom: 50%;
+		}
+		
+		.layerResult {
+			text-align: center;
+			text-align: center;
+		    position: absolute;
+		    bottom: 5%;
+		    width: 100%;
+		}
+		
+		.resultBox {
+		     width: 50%;
+		    background-color: #AFBEC8;
+		    color: #25333B;
+		    padding: 5px;
+		    border-radius: 4px;
+		    margin: 0 auto;
+		    font-size: 0.6em;
+		}
+	</style>
+	<body>
+		<div class="shakeBox lay-verical">
+			<!--动画层  start-->
+			<div class="shakeIn layIn">
+				<div class="shakeAll shakerow">
+					<img src="img/all.png" alt="" />
+				</div>
+				<div class="shakeUp hide shakerow">
+					<img src="img/up.png" alt="" />
+				</div>
+				<div class="shakeDown hide shakerow">
+					<img src="img/down.png" alt="" />
+				</div>
+				<!--结果层  start-->
+				<div class="layerResult hide">
+					<div class="resultBox">
+						加载中
+					</div>
+				</div>
+				<!--结果层  end-->
+			</div>
+			<!--动画层  end-->
+			
+		
+		</div>
+		
+		<audio id="shakeAudio" style='display: none;'  src="shake.mp3">
+	</body>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			
+			var shakeAll = $(".shakeAll");
+			var shakeUp = $(".shakeUp");
+			var shakeDown = $(".shakeDown");
+			var layerResult = $(".layerResult");
+			var resultBox = $(".resultBox");
+			var shakeAudio =  document.getElementById("shakeAudio");
+			
+			canshake = true;
+			hasResult = true;
+			totalShakeCount = 0;
+			 // 动画的时机是2s  在执行动画中  忽略摇动
+			window.startAnimate = function(){
+			 	if(!canshake) return false;
+			 	canshake = false; // 控制高频摇动用户
+			 	totalShakeCount++;
+			 	//播放声音
+			 	shakeAudio.currentTime = 0;
+			 	shakeAudio.play();
+			 	
+			 	layerResult.fadeOut();
+			 	// 显示加载中
+			 	resizeResult();
+			 	
+			 	shakeAll.addClass("hide");
+			 	shakeDown.removeClass("hide");
+			 	shakeUp.removeClass("hide");
+			 	//
+			 	setTimeout(function(){
+			 		shakeUp.addClass("actionMove");
+			 	},100);
+			 	
+			 	setTimeout(function(){
+			 		shakeUp.removeClass("actionMove");
+			 		setTimeout(function(){
+				 		shakeDown.addClass("hide");
+			 			shakeUp.addClass("hide");
+					 	shakeAll.removeClass("hide");
+				 	},500);
+			 	},600);
+			 	
+			 	if(totalShakeCount > 5) {
+			 		canshake = true;
+			 		renderCannotShake();
+			 		return false;
+			 	}
+			 	
+			 	// 渲染结果
+			 	if(hasResult) renderResult();
+			 }
+			 
+			 function resizeResult(){
+			 	layerResult.fadeIn(500);
+			 	resultBox.text("加载中");
+			 }
+			 
+			 function renderResult(){
+			 	hasResult = false;
+			 	// $.ajax({
+			 		// type:"get",
+			 		// data:{},
+			 		// url:"",
+			 		// success: function(){
+// 			 			
+			 		// }
+			 	// });
+			 	setTimeout(function(){
+			 		resultBox.text("摇了"+totalShakeCount+"次啦");
+			 		canshake = true;
+			 		hasResult = true;
+			 	}, 1000);
+			 }
+			 
+			 function renderCannotShake(){
+			 	resultBox.text("您摇动的次数没有啦");
+			 	layerResult.fadeIn(500);
+			 }
+			 
+			 // 摇一摇
+ 			var SHAKE_THRESHOLD = 1000;  
+			var last_update = 0;  
+			var x = y = z = last_x = last_y = last_z = 0;  
+	    	if (window.DeviceMotionEvent) {  
+	        	window.addEventListener('devicemotion', deviceMotionHandler, false);  
+	    	} else {  
+	        	alert('not support mobile event');  
+	        }  
+	        function deviceMotionHandler(eventData) {  
+	            var acceleration = eventData.accelerationIncludingGravity;  
+	            var curTime = new Date().getTime();  
+	            if ((curTime - last_update) > 100) {  
+	                var diffTime = curTime - last_update;  
+	                last_update = curTime;  
+	                x = acceleration.x;  
+	                y = acceleration.y;  
+	                z = acceleration.z;  
+	                var speed = Math.abs(x + y + z - last_x - last_y - last_z) / diffTime * 10000;  
+	                if (speed > SHAKE_THRESHOLD) {  
+	                		startAnimate();
+			        }  
+			    }
+		        last_x = x;  
+		        last_y = y;  
+		        last_z = z;  
+	    	}  
+			
+		});
+	</script>
+</html>

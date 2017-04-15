@@ -1,0 +1,22 @@
+*{
+    margin:0;
+    padding:0;
+}
+#main{
+    width:auto;
+    height:auto;
+    position:relative;
+    margin:0 auto;
+}
+.pin{
+    padding:15px 0 0 15px;
+    float:left;
+}
+.box{
+    padding:6px;
+    border:1px solid #ccc;
+}
+.box img{
+    width:252px;
+    height:auto;
+}

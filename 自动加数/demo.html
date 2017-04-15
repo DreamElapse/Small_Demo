@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title></title>
+<style> 
+*{ padding:0; margin:0;}
+#num{ display:inline-block; height:40px; color:#fff; font:34px/40px "Microsoft YaHei"; letter-spacing:16px; background:url(images/bg.jpg) no-repeat; overflow:hidden; padding-left:6px;}
+</style>
+<script> 
+window.onload = function(){
+	var i = 0;
+	var pl = 6;//盒子paddingleft值
+	var t = 5;//加数速度1000为1秒
+	var saleNum = 3000;//秒掉总数
+	var numElem = document.getElementById("num");
+	var timer = setInterval(updateNum, t);
+	function updateNum()
+	{
+		if( numElem.innerHTML < saleNum ){
+			numElem.innerHTML=i++;
+			numElem.style.paddingLeft=pl+"px";
+			if( numElem.innerHTML < 10 ){
+				numElem.style.width=''+33-pl+'px';
+			}else if( numElem.innerHTML > 10 && numElem.innerHTML < 100 ){
+				numElem.style.width=''+68-pl+'px';
+			}else if( numElem.innerHTML > 100 && numElem.innerHTML < 1000 ){
+				numElem.style.width=''+103-pl+'px';
+			}else if( numElem.innerHTML > 1000 ){
+				numElem.style.width=''+139-pl+'px';
+				clearInterval(timer);
+				setInterval(function(){
+					numElem.innerHTML=i++;
+				},100)
+			}
+		}
+	}
+}
+</script>
+</head>
+<body>
+<span id="num">0</span>
+</body>
+</html>

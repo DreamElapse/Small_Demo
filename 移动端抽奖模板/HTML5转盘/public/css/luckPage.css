@@ -1,0 +1,70 @@
+body{
+	width: 100%; height: 100%;
+	background-color: #ED290F;
+	display: -webkit-box;
+	-webkit-box-pack: center; 
+	-webkit-box-align: center;
+}
+#content{
+	width: 95%;
+}
+.banner .turnplate {
+	display: block;
+	width: 100%;
+	position: relative;
+}
+.turnplate{
+	background: url(../img/luckbg.png) no-repeat center center;
+	background-size: 100%;
+}
+.banner .turnplate canvas.item {
+	width: 100%;
+}
+.banner .turnplate img#pointer {
+	position: absolute;
+	width: 31.5%;
+	height: 42.5%;
+	left: 34.6%;
+	top: 23%;
+}
+#shan-img,#sorry-img{
+	display: none;
+}
+#backBtn{
+	position: fixed;
+	z-index: 9999;
+	top: 2%; left: 4%;
+	width: 36px; height: 36px;
+	border-radius: 100%;
+	overflow: hidden;
+	background-color: #fff;
+}
+#backBtn a{
+	display: block;
+	width: 100%; height: 100%;
+	background: url(../img/back.png) no-repeat center center;
+	background-size: 28px;
+}
+#messBox{
+	width: 90%; height: 80px;
+	border-radius: 8px;
+	margin: 8% auto 5px;
+	background-color: #fff;
+	font-size: 26px;
+	font-weight: bold;
+	color: #E73E3D;
+	display: -webkit-box;
+	-webkit-box-pack: center; 
+	-webkit-box-align: center;
+}
+#okBtn{
+	width: 60%;
+	margin: 2% auto;
+	line-height: 3rem;
+	border-radius: 5px;
+	text-align: center;
+	font-size: 16px;
+	color: #fff;
+	background-color: #FFBE04;
+	box-shadow: 0 0 8px rgba(168,168,168,.4);
+}

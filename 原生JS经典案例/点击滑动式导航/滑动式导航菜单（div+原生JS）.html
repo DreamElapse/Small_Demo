@@ -1,0 +1,109 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>js实现滑动的弹性导航</title>
+<script src="jquery-2.1.4.min.js"></script>
+<script>
+    $(function(){
+        $(".nav li").click(function(){
+            $(this).addClass(".nav");
+        },function(){
+            $(this).removeClass(".nav");
+        });
+    });
+</script>
+<style type="text/css">
+body,ul,li { margin:0; padding:0; }
+ul { list-style:none; }
+.box {
+    background-color:#1a1a1a;
+    margin-top:20px;
+}
+.nav {
+    width:1000px;
+    height:45px;
+    margin:0 auto;
+    position:relative;
+}
+.nav li {
+    float:left;
+    width:100px;
+    line-height:45px;
+    position:relative;
+    z-index:2;
+    text-align:center;
+    border-bottom:#090;
+}
+.nav a {
+    height:45px;
+    display:block;
+    color:#eee;
+    font-size:14px;
+    text-decoration:none;
+}
+#mask {
+    width:100px;
+    height:45px;
+    background-color:#028eec;
+    opacity:0.5;
+    position:absolute;
+    top:0;
+    left:0;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+    <div id="nav" class="nav">
+        <ul>
+            <li><a href="#">首页</a></li>
+            <li><a href="#">前端规范</a></li>
+            <li><a href="#">社区</a></li>
+            <li><a href="#">微笔记</a></li>
+            <li><a href="#">教程</a></li>
+            <li><a href="#">网页制作</a></li>
+            <li><a href="#">设计动态</a></li>
+            <li><a href="#">技术文档</a></li>
+            <li><a href="#">瀑布流</a></li>
+            <li><a href="#">移动页面</a></li>
+        </ul>
+        <div id="mask"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+window.onload = function(){
+    var aLink = document.getElementById("nav").getElementsByTagName("li");
+    var oMask = document.getElementById("mask");
+    for(var i=0; i<aLink.length; i++){
+        aLink[i].onclick = function(){
+            startMove(oMask,this.offsetLeft);
+        }
+    }
+};
+
+var iSpeed = 0;
+var left = 0;
+function startMove(obj, iTarget){
+    clearInterval(obj.timer);
+    obj.timer = setInterval(function(){
+        iSpeed += (iTarget-obj.offsetLeft)/5;
+        iSpeed *= 0.7;
+        left += iSpeed;
+        if(Math.abs(iSpeed)<1 && Math.abs(iTarget-left)<1){
+            clearInterval(obj.timer);
+            obj.style.left = iTarget+"px";
+        }else{
+            obj.style.left = left+"px";
+        }
+    }, 30);
+}
+</script>
+</body>
+</html>
+
+
+
