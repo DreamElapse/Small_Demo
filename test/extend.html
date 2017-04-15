@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+<title>无标题文档</title>
+<style>
+*{ padding:0; margin:0;}
+li,ul{ list-style:none;}
+.list{ width:400px; border:3px solid #913945; margin:100px auto; height:200px; overflow:hidden;}
+.list ul{ }
+.list ul li{ height:30px; line-height:30px; border-bottom:2px dashed #ccc; margin:0 10px;}
+</style>
+<script>
+(function($){
+	$.fn.extend({
+		
+		scrollT:function(b){
+			var a = {
+				scrNum : 1,	//滚动条数
+				timeOut : 2500,	//滚动延时
+				speed : 1000	//滚动速度
+			}
+			
+			var ex=$.extend(a,b),
+				scrNum = ex.scrNum,	//滚动条数
+				timeOut = ex.timeOut,	//滚动延时
+				speed = ex.speed;	//滚动速度
+				
+			var timer,
+				_ = $(this),
+				_box = _.children(),
+				_li = _box.children(),
+				_liL = _li.length,
+				scrH = _box.children(":first").outerHeight(true);
+			
+			//获取内容总长度	
+			var _liLtot = 0;
+			for( i=0 ; i<_liL ; i++){
+					var _liH = _li.eq(i).outerHeight(true);
+						_liLtot += _liH;
+				}
+				
+			//盒子长度小于内容长度，不滚动
+			if( _.height() < _liLtot ){
+				timer=setInterval(autoScr,timeOut);
+				_.hover(function() {
+					clearInterval(timer);
+					timer=null
+				},function(){
+					timer=setInterval(autoScr,timeOut);
+				});	
+			}
+			
+			//滚动效果
+			function autoScr(){
+					_box.animate({marginTop:-scrH*scrNum},speed,function(){
+						_box.css({marginTop:0})
+						_box.children(":lt("+scrNum+")").appendTo(_box);
+					})
+				}
+		}
+	});
+})(jQuery)
+</script>
+
+</head>
+
+<body>
+<div class="list" id="scrollT">
+	<ul>
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+		<li>6</li>
+		<li>7</li>
+		<li>8</li>
+		<li>9</li>
+	</ul>
+</div>
+<script>
+$("#scrollT").scrollT();
+</script>
+
+<div class="list" id="scrollT01" style=" border:3px solid #69F;">
+	<ul>
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+		<li>6</li>
+		<li>7</li>
+		<li>8</li>
+		<li>9</li>
+        <li>10</li>
+        <li>11</li>
+        <li>12</li>
+        <li>13</li>
+	</ul>
+</div>
+<script>
+$("#scrollT01").scrollT({scrNum:4,timeOut:3000,speed:1500});
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>四级联动</title>
+<scrpt type="text/javascript"  src="jquery-1.8.3.min.js"></scrpt>
+ <script type="text/javascript"  src="place.js"></script> 
+</head>
+<style type="text/css">
+select{ width: 5rem; height:1.2rem;}
+.selected{width: 94%; margin: 0 auto;}   
+
+</style>
+<body>
+<div class="selected">
+    <select name="province" id="province">
+        <option>省</option>
+    </select>
+    <select name="city" id="city">
+        <option>城市</option>
+    </select>
+    <select name="town" id="town">
+        <option>区县</option>
+    </select>
+    <select name="street" id="street">
+        <option>街道</option>
+    </select>
+</div>
+
+<script type="text/javascript" src="jquery.min.js"></script>
+<script type="text/javascript">
+    var province = '#province';
+    var city = '#city';
+    var town = '#town';
+    var street = '#street';
+    var child = '';
+    $('#province').change(function(){changed_data(province)});
+    $('#city').change(function(){changed_data(city)});
+    $('#town').change(function(){changed_data(town)});
+    $('#street').change(function(){changed_data(street)});
+    var changed_data = function(change_key){
+        console.log(change_key);
+        if (change_key == province) {
+            child = city;
+            key = '0_' + $(province).val();
+        } else if (change_key == city) {
+            child = town;
+            key = '0_' + $(province).val() + '_' + $(city).val();
+        } else if (change_key == town) {
+            child = street;
+            key = '0_' + $(province).val() + '_' + $(city).val() + '_' + $(town).val();
+        }else if(change_key == 'init'){
+            child = province;
+            key = '0';
+        }else if (change_key == street) {
+            return false;
+        } 
+
+        $.ajax({ 
+            url:'http://dev.m.api.duobao369.com/other/get_address?',
+            data:{key:key},
+            type:'get',
+            dataType:'json',
+            success:function(data){
+                console.log(data);
+                if(data.code==0){
+                    $(child).empty();
+                    $.each(data.data,function(index,item){
+                        // console.log(index,item)
+                        $(child).append('<option value=' + index + '>'+item+'</option>');
+                    });
+                    if(data.data.length == 0){
+                        $(child).hide();
+                    } else{
+                        $(child).show();
+                    }
+                    changed_data(child);
+
+                }
+            }
+        })        
+    };
+
+    changed_data('init');
+</script>
+</body>
+
+</html>

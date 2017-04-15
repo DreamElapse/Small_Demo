@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>全民夺宝pc版登陆界面2</title>
+<script type="text/javascript" src="jquery.min.js">
+</script>
+<style>
+#grey_alert {
+    position: absolute;
+    z-index: 3;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: block;
+}
+
+.login{ width:398px; height: 374px; position:absolute; left:50%; top:50%; margin-left:-199px; margin-top:-187px; background:#FCFCFC; border:1px solid #adadad;}
+.login nav{ height:28px; background: url(img/login_nav.jpg) repeat-x; padding:0 12px; color:#6e6e6e; line-height:28px; font-size:12px;}
+.login nav span{ float:left; }
+.login nav b{ float:right; font-weight: normal;}
+.login .login_phone,.login_password,.login_login,.login_yzma,.login_yzma1{ margin:36px auto 8px;  height:38px; width: 220px;  line-height:38px; position:relative; padding-left:40px; border-radius: 3px;}
+.login input{ font-size:14px; color:#bbbbbb; width:218px; height:34px; position:absolute; left:0px; padding-left:40px;}
+.login .login_yzma input{ width:108px; }
+.login .login_password{margin:0 auto;}
+.login .login_login{margin:8px auto; background: #fe524f;  text-align:center; padding: 0; width: 260px;}
+.login .login_login a{color:#fff; font-size:16px; text-decoration:none;}
+.login .login_yzma1{margin:8px auto; padding:0; width:260px;border:none;}
+.login .login_yzma{margin:0;width: 110px; float:left; display:inline-block; }
+.login .login_yzma1 a{float:right; color:#75affa; font-size:14px; text-decoration: none; margin:0 18px;}
+.login .login_phone b{ font-size:14px; font-weight: normal; color:#bbbbbb}
+.login .login_phone img{ position:absolute; left:10px; top:8px;}
+.login .login_password img{ position:absolute; left:10px; top:8px;}
+.login .login_password  b{ font-size:14px; font-weight: normal; color:#bbbbbb}
+.login .login_yzma img{ position:absolute; left:10px; top:8px;}
+.login .login_yzma  b{ font-size:14px; font-weight: normal; color:#bbbbbb}
+
+.login .login_sm{height:25px; width: 260px; margin:0 auto; font-size:12px;}
+.login .login_sm a{ float:left; color:#3b68f2; text-decoration:none;}
+.login .login_sflogin{ height:25px; width: 260px; margin:0 auto; font-size:12px; text-align:center; color:#6e6e6e;}
+.login .login_sflogin div{width:98px; border-top:1px solid #f0f0f0; margin-top:8px;}
+.login .login_sflogin div:nth-of-type(1){float:left;}
+.login .login_sflogin div:nth-of-type(2){float:right;}
+.login .login_sflogintp{ width:165px; margin: 0 auto;}
+.login .login_sflogintp img{margin:0 12px;}
+.login .footer { margin:14px auto; width:150px;font-size:12px; }
+.login .footer a{ color:#3b68f2; font-size:12px; text-decoration:none;}
+</style>
+
+</head>
+
+<body>
+<div id="grey_alert">
+    <div class="login">
+        <nav><span>请使用手机号码登陆</span> <b><img id="close" src="img/X.png" width="9" height="9"></b></nav>
+        <div class="login_phone"><input type="text" value="手机号码"><img src="img/pc切图_03.png" width="20" height="20"></div>
+        <div class="login_password"><input type="text" value="密码"><img src="img/pc切图_03-05.png" width="20" height="20"></div>
+        <div class="login_yzma1"><div class="login_yzma"><input type="text" value="输入验证码"><img src="img/pc切图_03-07.png" width="20" height="20"><b>输入验证码</b></div><a href="#">发送验证码</a></div>
+        <div class="login_login"><a href="#">注册</a></div>
+        <div class="login_sm"> <a href="#">已有帐号</a> </div>
+     
+        <div class="login_sflogin"><div></div>第三方登录<div></div></div>
+        <div class="login_sflogintp">
+            <a href="#"><img src="img/pc切图_13.png" width="27" height="27" alt="QQ"></a>
+            <a href="#"><img src="img/pc切图_15.png" width="27" height="27" alt="微信"></a>
+            <a href="#"><img src="img/pc切图_17.png" width="27" height="27" alt="微博"></a> 
+        </div>
+        <div class="footer"><a href="#">什么是全民夺宝</a> &nbsp;| &nbsp;<a href="#">服务协议</a></div>
+    </div>
+</div>
+<script type="text/javascript">
+
+$('nav #close').click(function() {
+
+    $(this).parent().parent().parent().parent().hide();
+});
+</script>
+</body>
+</html>

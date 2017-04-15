@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+<style>
+#dragBot{ position:relative; width:425px; height:86px;}
+#dragBot img{ width:100%;}
+</style>
+<script>
+$(function(){
+	var $changeImg=$("#changeImg"),
+		$dragBot=$("#dragBot");
+
+	// 一个元素
+	// 拉伸产品
+	$dragBot.bind("mousedown", function (event) {
+		event.preventDefault();
+		/* 获取需要拖动节点的坐标 */
+		var offset_x = $(this)[0].offsetLeft; //x坐标
+		var margin = 680 - $dragBot.width();
+		/* 获取当前鼠标的坐标 */
+		var mouse_x = event.pageX;
+		$dragBot.bind("mousemove", function (ev) {
+			/* 计算鼠标移动了的位置 */
+			var _x = ev.pageX - mouse_x;
+			/* 设置移动后的元素坐标 */
+			var num_x = (offset_x + _x);
+			var now_x = num_x + "px";
+			if (num_x <= 1) {
+				$dragBot.parent().removeClass("moved");
+				$dragBot.css({ left: 0 });
+				$changeImg.width("0%");
+			} else if (num_x > 1 && num_x <= margin) {
+				$dragBot.parent().addClass("moved");
+
+				$changeImg.width(Math.round(num_x / margin * 100) + "%");
+				/* 改变目标元素的位置 */
+				$dragBot.css({
+					left: now_x
+				});
+			} if (num_x > margin) {
+				$changeImg.width("100%");
+			}
+
+		});
+	});
+
+	$(document).bind("mouseup",function(){
+		$dragBot.unbind("mousemove");
+	});
+
+})
+</script>
+</head>
+
+<body>
+<div class="" style=" position:relative; width:875px; height:297px; background:url(images/eyes01.jpg) no-repeat">
+<div id="changeImg" class="m-v2" style=" position:absolute; left:0; top:0; height:297px; width: 0%; background:url(images/eyes02.jpg) no-repeat;"></div>
+</div>
+<div><div id="dragBot" style="left: 0px; background:url(images/mouse.png) no-repeat;"></div></div>
+</body>
+</html>
